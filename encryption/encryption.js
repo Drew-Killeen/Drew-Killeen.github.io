@@ -3,7 +3,8 @@
  */
 function Encrypt() {
     var key = document.getElementById("key").value,
-        txt = document.getElementById("txt").value.toLowerCase();
+        txt = document.getElementById("txt").value.toLowerCase(),
+        output;
     if (document.getElementById("decrypt").checked === true) {
         if (document.getElementById("caesar").checked === true) {
             console.log("Decrypt Caesar");
@@ -130,7 +131,7 @@ function caesarCipherDecrypt(plaintext, k) {
 /* Encrypt */
 function vigenereCipher(plaintext, k) {
     var output = "",
-        key, print, c, i;
+        key, print, c, i, j;
     plaintext = plaintext.split("");
     for (i = 0, j = 0; i < plaintext.length; i++) {
         if (j >= k.length) {
@@ -157,9 +158,9 @@ function vigenereCipher(plaintext, k) {
 /*Decrypt*/
 function vigenereCipherDecrypt(plaintext, k) {
     var output = "",
-        key, print, c;
+        key, print, c, i, j;
     plaintext = plaintext.split("");
-    for (var i = 0, j = 0; i < plaintext.length; i++) {
+    for (i = 0, j = 0; i < plaintext.length; i++) {
         if (j >= k.length) {
             j = 0;
         }
@@ -190,8 +191,9 @@ function vigenereCipherDecrypt(plaintext, k) {
 /* Encrypt */
 function pigLatinEncryption(plaintext) {
     var output = "",
-        first, text = plaintext.split(" ");
-    for (var i = 0; i < text.length; i++) {
+        first, text = plaintext.split(" "),
+        i;
+    for (i = 0; i < text.length; i++) {
         first = text[i].slice(0, 1);
         if (/[aeiouy]/i.test(first)) {
             text[i] += "way";
@@ -206,8 +208,9 @@ function pigLatinEncryption(plaintext) {
 /* Decrypt */
 function pigLatinDecrypt(plaintext) {
     var output = "",
-        last, text = plaintext.split(" ");
-    for (var i = 0; i < text.length; i++) {
+        last, text = plaintext.split(" "),
+        i;
+    for (i = 0; i < text.length; i++) {
         if (/way$/.test(text[i])) {
             text[i] = text[i].replace(/way$/, "");
         } else if (/ay$/.test(text[i])) {
@@ -226,12 +229,12 @@ function pigLatinDecrypt(plaintext) {
 
 /* Encrypt */
 function railFenceCipher(plaintext, key) {
+    var skip, j, i, line, output = "";
     plaintext = plaintext.replace(/\W/g, '');
     if (key > Math.floor(2 * (plaintext.length - 1))) {
         alert("key is too large for the plaintext length.");
         return;
     }
-    output = "";
     for (line = 0; line < key - 1; line++) {
         skip = 2 * (key - line - 1);
         j = 0;
@@ -267,7 +270,8 @@ function railFenceDecrypt(text, key) {
     }
     for (i = line; i < text.length; i += 2 * (key - 1)) pt[i] = text.charAt(k++);
     return pt.join("");
-}0
+}
+0
 
 /*
  **
