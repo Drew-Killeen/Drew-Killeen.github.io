@@ -13,7 +13,7 @@ function Encrypt() {
             output = vigenereCipherDecrypt(txt, key);
         } else if (document.getElementById("railfence").checked === true) {
             console.log("Decrypt Rail Fence");
-            output = railFenceCipher(txt, key);
+            output = railFenceDecrypt(txt, key);
         } else if (document.getElementById("piglatin").checked === true) {
             console.log("Decrypt Pig Latin");
             output = pigLatinDecrypt(txt);
@@ -129,7 +129,8 @@ function caesarCipherDecrypt(plaintext, k) {
 
 /* Encrypt */
 function vigenereCipher(plaintext, k) {
-    var output = "", key, print, c, i;
+    var output = "",
+        key, print, c, i;
     plaintext = plaintext.split("");
     for (i = 0, j = 0; i < plaintext.length; i++) {
         if (j >= k.length) {
@@ -225,6 +226,7 @@ function pigLatinDecrypt(plaintext) {
 
 /* Encrypt */
 function railFenceCipher(plaintext, key) {
+    plaintext = plaintext.replace(/\W/g, '');
     if (key > Math.floor(2 * (plaintext.length - 1))) {
         alert("key is too large for the plaintext length.");
         return;
@@ -246,10 +248,7 @@ function railFenceCipher(plaintext, key) {
 
 /* Decrypt */
 function railFenceDecrypt(text, key) {
-    if (text.length < 1) {
-        alert("please enter some plaintext (letters only)");
-        return;
-    }
+    plaintext = text.replace(/\W/g, '');
     if (key > Math.floor(2 * (text.length - 1))) {
         alert("key is too large for the ciphertext length.");
         return;
@@ -267,8 +266,8 @@ function railFenceDecrypt(text, key) {
         }
     }
     for (i = line; i < text.length; i += 2 * (key - 1)) pt[i] = text.charAt(k++);
-    document.getElementById("p").value = pt.join("");
-}
+    return pt.join("");
+}0
 
 /*
  **
