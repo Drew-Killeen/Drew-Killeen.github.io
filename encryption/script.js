@@ -1,3 +1,7 @@
+/*
+ ** General scripts; excludes ciphers
+ */
+
 var disableKey = false;
 
 function Instructions() {
