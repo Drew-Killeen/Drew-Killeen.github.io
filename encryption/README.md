@@ -1,4 +1,4 @@
-ENCRYTPION
+ENCRYPTION
 **********
 
 TODO

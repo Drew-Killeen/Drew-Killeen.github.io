@@ -311,6 +311,7 @@ function autokeyCipher(plaintext, key) {
         }
     }
     return output;
+    //return "error";
 }
 
 /* 
