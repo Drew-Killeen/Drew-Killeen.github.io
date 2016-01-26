@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            font-family:fantasy
+        }
+        div.header { 
+            width:100%;
+            position:absolute;
+            left:0;
+            top:0;
+            background: #A15AFF;
+            min-height:55px;
+            margin:0 auto;
+            box-shadow:1px 8px 14px black;
+        }
+        
+        span.title {
+            position:absolute;
+            top:10px;
+            left:15px;
+            font-size:180%;
+            color: rgba(10,60,150, 0.8);
+        }
+        
+        .container {
+            background-color:#e2e2e2;
+            min-height:100px;
+            position:absolute;
+            left:0;
+            top:55px;
+            width:100%
+        }
+        .input {
+            margin:15px;
+        }
+        #submit {
+            margin-top:5px;
+        }
+        p#output {
+            position:absolute;
+            top:0;
+            right:15px;
+            border:2px solid #A15AFF;
+            border-radius:5px;
+            padding:10px;
+        }
+    </style>
+    <script>
+        function Encrypt() {
+            var k = document.getElementById("key").value,
+            plaintext = document.getElementById("txt").value.toLowerCase(),
+            print, i;
+            plaintext = plaintext.split(""),
+            k = Number(k);
+            for (i = 0; i < plaintext.length; i++) {
+                if (/^[a-z]+$/.test(plaintext[i])) {
+                    print = plaintext[i].charCodeAt(0);
+                    print = (print - 97 + k) % 26 + 97;
+                    plaintext[i] = String.fromCharCode(print);
+                } else if (/^[A-Z]+$/.test(plaintext[i])) {
+                    print = plaintext[i].charCodeAt(0);
+                    print = (print - 65 + k) % 26 + 65;
+                    plaintext[i] = String.fromCharCode(print);
+                }
+            }
+            document.getElementById("output").innerHTML = plaintext.join("");
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <span class="title">The Drewnigma Machine</span>
+    </div>
+
+    <div class="container">
+        <div class="input">
+            <input type="text" name="lname" value="Duck-duck-goose!" id="txt" name="txt">
+
+            <input type="text" name="fname" value="13" id="key" name="key">
+            <br>
+            <button id="submit" onclick="Encrypt()">Encrypt</button>
+        </div>
+        <p id="output">output</p>
+    </div>
+
+    <div class="footer">
+    
+    </div>
+</body>
+</html>
