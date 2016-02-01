@@ -1,4 +1,9 @@
-document.getElementById("type").autofocus = true;
+$(document).ready(function(){
+    $("#type").keypress(function() {
+        console.log( "Handler for .keypress() called." );
+    });
+});
+
 function words() {
     var words = ["time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact"],
         output = "", 
@@ -10,4 +15,19 @@ function words() {
         output += words[Math.floor((Math.random() * 25) + 1)] + " ";
         document.getElementById("type_me").innerHTML = output;
     }
+}
+
+function startCountdown() {
+    d = new Date();
+    countdown = d.getMilliseconds();
+}
+
+function type() {
+    if(d.getMilliseconds() === countdown) {
+        endCountdown();
+    }
+}
+
+function endCountdown() {
+    
 }
