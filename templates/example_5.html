@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <script>
+        function groan() {
+            alert("Ughhhhhhhhhhh........");
+        }
+    </script>
+    <style type="text/css">
+        body {
+            font-family: fantasy;
+        }
+        
+        div.header {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #A15AFF;
+            min-height: 3px;
+            margin: 0 auto;
+            box-shadow: 1px 8px 14px black;
+        }
+        
+        span.title {
+            position: absolute;
+            top: 11px;
+            left: 15px;
+            font-size: 320%;
+            color: #3B63AB;
+            z-index: 1;
+        }
+        
+        .container {
+            background-color: #e2e2e2;
+            min-height: 250px;
+            position: absolute;
+            left: 0;
+            top: 65px;
+            width: 100%;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-bottom: 0;
+        }
+        
+        div.footer {
+            height: 3px;
+            width: 100%;
+            background-color: #A15AFF;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            box-shadow: 1px 8px 14px black;
+        }
+        
+        div.top {
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            top: 62px;
+            left: 0;
+            background-color: #A15AFF;
+        }
+        
+        input,
+        button {
+            box-shadow: 0;
+            transition: box-shadow 0.7s;
+        }
+        
+        input:hover,
+        button:hover {
+            -webkit-box-shadow: 0px 0px 15px 0 rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 15px 0 rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 15px 0 rgba(0, 0, 0, 0.75);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <span class="title">Title</span>
+    </div>
+    <div class="top"></div>
+    <div class="container">
+        <input type="text" placeholder="frustrations">
+        <button onclick="groan();">Complain</button>
+
+        <div class="footer"></div>
+    </div>
+</body>
+
+</html>
