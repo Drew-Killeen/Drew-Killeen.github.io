@@ -42,3 +42,8 @@ function count() {
         console.log(i + 1);
     }
 }
+
+function encrypt() {
+    var plaintext = document.getElementById("plaintext").value;
+    document.getElementById("output").innerHTML = plaintext;
+}
