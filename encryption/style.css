@@ -65,7 +65,7 @@ table {
 
 body {
     background-color: #00CDCD;
-    background-image: url("http://gigabytestudios.elementfx.com/test/encryption/Metal%20armour%20plating%20cyan.jpg");
+    background-image: url("Metal%20armour%20plating%20cyan.jpg");
     padding: 40px;
     font-family: Trebuchet MS;
     line-height: 1.6;
@@ -214,4 +214,27 @@ button {
 button:hover {
     -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 16px;
     box-shadow: rgba(0, 0, 0, 0.2) 0 0 16px;
+}
+
+.doNotDisplay {
+    display:none;
+}
+
+#cipherBreak th, #cipherBreak td {
+    padding-bottom: 35px;
+    min-width:75px;
+}
+
+#expandInput {
+    text-align:center;
+    font-size:70%;
+}
+
+#expandInput:hover {
+    cursor:pointer;
+}
+
+textarea#txt {
+    height: 65%;
+    width: 125%;
 }

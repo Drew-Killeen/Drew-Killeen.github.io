@@ -5,68 +5,81 @@ function Encrypt() {
     var key = document.getElementById("key").value,
         txt = document.getElementById("txt").value.toLowerCase(),
         output;
-    if (document.getElementById("decrypt").checked === true) {
-        if (document.getElementById("caesar").checked === true) {
-            console.log("Decrypt Caesar");
-            output = caesarCipherDecrypt(txt, key);
-        } else if (document.getElementById("vigenere").checked === true) {
-            console.log("Decypt Vigenere");
-            output = vigenereCipherDecrypt(txt, key);
-        } else if (document.getElementById("railfence").checked === true) {
-            console.log("Decrypt Rail Fence");
-            output = railFenceDecrypt(txt, key);
-        } else if (document.getElementById("piglatin").checked === true) {
-            console.log("Decrypt Pig Latin");
-            output = pigLatinDecrypt(txt);
-        } else if (document.getElementById("autokey").checked === true) {
-            console.log("Decrypt Autokey");
-            output = autokeyDecrypt(txt, key);
-        } else if (document.getElementById("atbash").checked === true) {
-            console.log("Decrypt Atbash");
-            output = atbashDecrypt(txt, key);
+    if (key.length !== 0) {
+        if (document.getElementById("decrypt").checked === true) {
+            if (document.getElementById("caesar").checked === true) {
+                console.log("Decrypt Caesar");
+                output = caesarCipherDecrypt(txt, key);
+            } else if (document.getElementById("vigenere").checked === true) {
+                console.log("Decypt Vigenere");
+                output = vigenereCipherDecrypt(txt, key);
+            } else if (document.getElementById("railfence").checked === true) {
+                console.log("Decrypt Rail Fence");
+                output = railFenceDecrypt(txt, key);
+            } else if (document.getElementById("piglatin").checked === true) {
+                console.log("Decrypt Pig Latin");
+                output = pigLatinDecrypt(txt);
+            } else if (document.getElementById("autokey").checked === true) {
+                console.log("Decrypt Autokey");
+                output = autokeyDecrypt(txt, key);
+            } else if (document.getElementById("atbash").checked === true) {
+                console.log("Decrypt Atbash");
+                output = atbashDecrypt(txt, key);
+            }
+        } else {
+            if (document.getElementById("caesar").checked === true) {
+                if (key.length === 0) {
+                    alert("Please enter a key");
+                    return;
+                } else {
+                    console.log("Initiating Caesar Cipher");
+                    output = caesarCipher(txt, key);
+                }
+            } else if (document.getElementById("vigenere").checked === true) {
+                if (key.length === 0) {
+                    alert("Please enter a key");
+                    return;
+                } else {
+                    console.log("Initiating Vigenere Cipher");
+                    output = vigenereCipher(txt, key);
+                }
+            } else if (document.getElementById("piglatin").checked === true) {
+                console.log("Initiating Pig Latin Translation");
+                output = pigLatinEncryption(txt);
+            } else if (document.getElementById("railfence").checked === true) {
+                if (key.length === 0) {
+                    alert("Please enter a key");
+                    return;
+                } else {
+                    console.log("Initiating Rail Fence Cipher");
+                    output = railFenceCipher(txt, key);
+                }
+            } else if (document.getElementById("autokey").checked === true) {
+                if (key.length === 0) {
+                    alert("Please enter a key");
+                    return;
+                } else {
+                    console.log("Initiating Autokey Cipher");
+                    output = autokeyCipher(txt, key);
+                }
+            } else if (document.getElementById("atbash").checked === true) {
+                console.log("Initiating Atbash Cipher");
+                output = atbashCipher(txt);
+            }
         }
-    } else {
+        document.getElementById("cipher").value = output;
+    } else if (document.getElementById("decrypt").checked === true) {
+        document.getElementById("cipher").classList.add("doNotDisplay");
+        document.getElementById("cipherBreak").classList.remove("doNotDisplay");
         if (document.getElementById("caesar").checked === true) {
-            if (key.length === 0) {
-                alert("Please enter a key");
-                return;
-            } else {
-                console.log("Initiating Caesar Cipher");
-                output = caesarCipher(txt, key);
+            console.log("Break Caesar Cipher");
+            output = ""
+            for (i = 0; i < 26; i++) {
+                output += "<tr><td>Key of " + i + ":</td><td>" + caesarCipherDecrypt(txt, i) + "</td></tr>";
             }
-        } else if (document.getElementById("vigenere").checked === true) {
-            if (key.length === 0) {
-                alert("Please enter a key");
-                return;
-            } else {
-                console.log("Initiating Vigenere Cipher");
-                output = vigenereCipher(txt, key);
-            }
-        } else if (document.getElementById("piglatin").checked === true) {
-            console.log("Initiating Pig Latin Translation");
-            output = pigLatinEncryption(txt);
-        } else if (document.getElementById("railfence").checked === true) {
-            if (key.length === 0) {
-                alert("Please enter a key");
-                return;
-            } else {
-                console.log("Initiating Rail Fence Cipher");
-                output = railFenceCipher(txt, key);
-            }
-        } else if (document.getElementById("autokey").checked === true) {
-            if (key.length === 0) {
-                alert("Please enter a key");
-                return;
-            } else {
-                console.log("Initiating Autokey Cipher");
-                output = autokeyCipher(txt, key);
-            }
-        } else if (document.getElementById("atbash").checked === true) {
-            console.log("Initiating Atbash Cipher");
-            output = atbashCipher(txt);
         }
+        document.getElementById("cipherBreak").innerHTML = output;
     }
-    document.getElementById("cipher").value = output;
 }
 
 /* 
@@ -122,6 +135,7 @@ function caesarCipherDecrypt(plaintext, k) {
     plaintext = plaintext.join("");
     return plaintext;
 }
+
 /*
  **
  ** Vigenere Cipher 

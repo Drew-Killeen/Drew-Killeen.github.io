@@ -3,8 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-31j">
-    <script type="text/javascript" src="encryption.js"></script>
-    <script type="text/javascript" src="script.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <link href='style.css' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -77,27 +75,30 @@
                 <tr>
                     <td>Key:</td>
                     <td>
-                        <input type="text" name="fname" value="13" id="key" name="key">
+                        <input type="text" name="fname" placeholder="key" id="key" name="key">
                     </td>
                 </tr>
                 <tr>
-                    <td>String:</td>
+                    <td>String: <span id="expandInput">(+)</span></td>
                     <td>
-                        <input type="text" name="lname" value="Duck-duck-goose!" id="txt" name="txt">
+                        <textarea id="txt" placeholder="plaintext"></textarea><!--<input type="text" name="lname" value="Duck-duck-goose!" id="txt" name="txt">-->
                     </td>
                 </tr>
             </table>
         </form>
 
-        <button id="submit" onclick="Encrypt()">Encrypt</button>
-        <button onclick="Switch()">Switch</button>
+        <button id="submit">Encrypt</button>
+        <button id="switch">Switch</button>
 
         <center>
             <textarea rows="4" columns="50" id="cipher" placeholder="output"></textarea>
+            <table id="cipherBreak" class="doNotDisplay">...</table>
         </center>
 
         <div class="footer"><a href="info.html" class="instructions">Instructions</a></div>
     </div>
+    <script type="text/javascript" src="encryption.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
