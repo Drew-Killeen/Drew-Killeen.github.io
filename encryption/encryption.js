@@ -1,6 +1,8 @@
 /*
  ** Main Encrypt function - Entry point for all encryption and decryption functions 
  */
+var cracked = false; 
+
 function Encrypt() {
     var key = document.getElementById("key").value,
         txt = document.getElementById("txt").value.toLowerCase(),
@@ -73,9 +75,19 @@ function Encrypt() {
         document.getElementById("cipherBreak").classList.remove("doNotDisplay");
         if (document.getElementById("caesar").checked === true) {
             console.log("Break Caesar Cipher");
-            output = ""
-            for (i = 0; i < 26; i++) {
-                output += "<tr><td>Key of " + i + ":</td><td>" + caesarCipherDecrypt(txt, i) + "</td></tr>";
+            if (txt.length > 600) {
+                console.log("Attempting to crack cipher");
+                output = false;
+                for (i = 0; i < 26; i++) {
+                    if (output === false) {
+                        output = caesarCipherBreak(caesarCipherDecrypt(txt, i));
+                    }
+                }
+            } else {
+                output = ""
+                for (i = 0; i < 26; i++) {
+                    output += "<tr><td>Key of " + i + ":</td><td>" + caesarCipherDecrypt(txt, i) + "</td></tr>";
+                }
             }
         }
         document.getElementById("cipherBreak").innerHTML = output;
@@ -134,6 +146,47 @@ function caesarCipherDecrypt(plaintext, k) {
     }
     plaintext = plaintext.join("");
     return plaintext;
+}
+
+/* Break */
+function caesarCipherBreak(input) {
+    var cases = 0;
+    if (/the/.test(input)) {
+        cases++;
+    }
+    if (/and/.test(input)) {
+        cases++;
+    }
+    if (/that/.test(input)) {
+        cases++;
+    }
+    if (/have/.test(input)) {
+        cases++;
+    }
+    if (/for/.test(input)) {
+        cases++;
+    }
+    if (/not/.test(input)) {
+        cases++;
+    }
+    if (/with/.test(input)) {
+        cases++;
+    }
+    if (/you/.test(input)) {
+        cases++;
+    }
+    if (/this/.test(input)) {
+        cases++;
+    }
+    if (/but/.test(input)) {
+        cases++;
+    }
+    if (cases > 3) {
+        return input;
+    }
+    else {
+        return false;
+    }
 }
 
 /*
