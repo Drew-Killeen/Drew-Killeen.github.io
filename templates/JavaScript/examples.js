@@ -34,6 +34,12 @@ function findNeedle(haystack) {
  ** Count the number of times the for loop has been run
  */
 
+function count(number) {
+    for (var i = 0; i < number; i++) {
+        console.log(i + 1);
+    }
+}
+
 function encrypt() {
     var plaintext = document.getElementById("plaintext").value;
     document.getElementById("output").innerHTML = plaintext;
