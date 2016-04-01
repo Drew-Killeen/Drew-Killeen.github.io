@@ -1,13 +1,15 @@
 /*
  ** Main Encrypt function - Entry point for all encryption and decryption functions 
  */
-var cracked = false; 
+var cracked = false;
 
 function Encrypt() {
     var key = document.getElementById("key").value,
-        txt = document.getElementById("txt").value.toLowerCase(),
+        txt = document.getElementById("txt").value.toLowerCase().replace(/['"]+/g, ''),
         output;
-    if (key.length !== 0) {
+    if (key.length !== 0 || document.getElementById("piglatin").checked === true || document.getElementById("atbash") === true || document.getElementById("decrypt").checked === false) {
+        document.getElementById("cipher").classList.remove("doNotDisplay");
+        document.getElementById("cipherBreak").classList.add("doNotDisplay");
         if (document.getElementById("decrypt").checked === true) {
             if (document.getElementById("caesar").checked === true) {
                 console.log("Decrypt Caesar");
@@ -31,39 +33,39 @@ function Encrypt() {
         } else {
             if (document.getElementById("caesar").checked === true) {
                 if (key.length === 0) {
-                    alert("Please enter a key");
-                    return;
-                } else {
-                    console.log("Initiating Caesar Cipher");
-                    output = caesarCipher(txt, key);
+                    key = 13;
+                    document.getElementById("cipherBreak").classList.remove("doNotDisplay");
+                    document.getElementById("cipherBreak").innerHTML = "Key set to default of 13";
                 }
+                console.log("Initiating Caesar Cipher");
+                output = caesarCipher(txt, key);
             } else if (document.getElementById("vigenere").checked === true) {
                 if (key.length === 0) {
-                    alert("Please enter a key");
-                    return;
-                } else {
-                    console.log("Initiating Vigenere Cipher");
-                    output = vigenereCipher(txt, key);
+                    key = "baz";
+                    document.getElementById("cipherBreak").classList.remove("doNotDisplay");
+                    document.getElementById("cipherBreak").innerHTML = "Key set to default of baz";
                 }
+                console.log("Initiating Vigenere Cipher");
+                output = vigenereCipher(txt, key);
             } else if (document.getElementById("piglatin").checked === true) {
                 console.log("Initiating Pig Latin Translation");
                 output = pigLatinEncryption(txt);
             } else if (document.getElementById("railfence").checked === true) {
                 if (key.length === 0) {
-                    alert("Please enter a key");
-                    return;
-                } else {
-                    console.log("Initiating Rail Fence Cipher");
-                    output = railFenceCipher(txt, key);
+                    key = 3;
+                    document.getElementById("cipherBreak").classList.remove("doNotDisplay");
+                    document.getElementById("cipherBreak").innerHTML = "Key set to default of 3";
                 }
+                console.log("Initiating Rail Fence Cipher");
+                output = railFenceCipher(txt, key);
             } else if (document.getElementById("autokey").checked === true) {
                 if (key.length === 0) {
-                    alert("Please enter a key");
-                    return;
-                } else {
-                    console.log("Initiating Autokey Cipher");
-                    output = autokeyCipher(txt, key);
+                    key = "qux";
+                    document.getElementById("cipherBreak").classList.remove("doNotDisplay");
+                    document.getElementById("cipherBreak").innerHTML = "Key set to default of qux";
                 }
+                console.log("Initiating Autokey Cipher");
+                output = autokeyCipher(txt, key);
             } else if (document.getElementById("atbash").checked === true) {
                 console.log("Initiating Atbash Cipher");
                 output = atbashCipher(txt);
@@ -81,6 +83,9 @@ function Encrypt() {
                 for (i = 0; i < 26; i++) {
                     if (output === false) {
                         output = caesarCipherBreak(caesarCipherDecrypt(txt, i));
+                        if (output !== false) {
+                            output = "Key of " + i + "<br><br>" + output;
+                        }
                     }
                 }
             } else {
@@ -183,8 +188,7 @@ function caesarCipherBreak(input) {
     }
     if (cases > 3) {
         return input;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -430,5 +434,5 @@ function atbashDecrypt(plaintext) {
         }
     }
     plaintext = plaintext.join("");
-    return "Atbash decryption is not yet functional";
+    return plaintext;
 }

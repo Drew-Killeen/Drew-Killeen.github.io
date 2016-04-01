@@ -7,9 +7,8 @@
     <script>
         function Encrypt() {
             var k = document.getElementById("key").value,
-                plaintext = document.getElementById("txt").value.toLowerCase(),
+                plaintext = document.getElementById("txt").value.toLowerCase().split(""),
                 print, i;
-            plaintext = plaintext.split(""),
                 k = Number(k);
             for (i = 0; i < plaintext.length; i++) {
                 if (/^[a-z]+$/.test(plaintext[i])) {

@@ -6,6 +6,7 @@ var disableKey = false;
 
 document.getElementById("submit").addEventListener("click", Encrypt);
 document.getElementById("switch").addEventListener("click", Switch);
+document.getElementById("expandInput").addEventListener("click", Expand);
 
 function Instructions() {
     $(".instructionsMain").slideToggle(800, "linear");
@@ -80,8 +81,26 @@ function Switch() {
     document.getElementById("txt").value = output;
 }
 
-$("#expandInput").click(function () {
+function Expand() {
+    if (document.getElementById("expandInput").innerHTML == "(+)") {
+        document.getElementById("expandInput").innerHTML = "(-)"
+        document.getElementById("expandInput").classList.remove("expandInput");
+        document.getElementById("expandInput").classList.add("collapseInput");
+    } else {
+        document.getElementById("expandInput").innerHTML = "(+)"
+        document.getElementById("expandInput").classList.add("expandInput");
+        document.getElementById("expandInput").classList.remove("collapseInput");
+    }
+}
+
+$(".expandInput").click(function () {
     $("#txt").animate({
         width: "400%"
-    }, 2000, function () {});
+    }, 1500, function () {});
+});
+
+$(".collapseInput").click(function () {
+    $("#txt").animate({
+        width: "100%"
+    }, 1500, function () {});
 });

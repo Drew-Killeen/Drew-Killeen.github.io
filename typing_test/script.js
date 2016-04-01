@@ -1,4 +1,5 @@
 var d;
+document.getElementById("type").addEventListener("keypress", startCountdown);
 
 function words() {
     var words = ["time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact"],
@@ -13,6 +14,9 @@ function words() {
     }
 }
 
+/*
+ ** Countdown functions - needs lots of work 
+ */
 function startCountdown() {
     if (d === undefined) {
         d = new Date();
