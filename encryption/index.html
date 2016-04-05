@@ -14,45 +14,46 @@
 
     <div class="container">
         <a href="index.html" class="header">The Drewnigma Machine</a>
-        <form id="type">
-            <input type="radio" name="type" value="encrypt" id="encrypt">
-            <label for="encrypt" class="css-label" onclick="Forward()">Encrypt</label>
-            <input type="radio" name="type" value="decrypt" id="decrypt">
-            <label for="decrypt" class="css-label" onclick="Backward()">Decrypt</label>
-        </form>
-        <br>
-        <form id="algorithm">
-            <table class="instructionsExpand">
-                <tr>
-                    <td style="width:125px;">
-                        <input type="radio" name="cipher" value="caesar" id="caesar">
-                        <label for="caesar" class="css-label" onclick="configureCaesar()">Caesar</label>
-                    </td>
-                    <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Caesar')" /></td>
-                    <td style="max-width:800px;" class="readMore"><span class="hide instructionsCaesar"><a href="http://en.wikipedia.org/wiki/Caesar_cipher">Read more</a></span></td>
-                    <td class="row2" style="width:125px;">
-                        <input type="radio" name="cipher" value="autokey" id="autokey">
-                        <label for="autokey" class="css-label" onclick="configureAutokey()">Autokey</label>
-                    </td>
-                    <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Autokey')" /></td>
-                    <td class="readMore"><span class="hide instructionsAutokey"><a href="http://en.wikipedia.org/wiki/Autokey_cipher">Read more</a></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="radio" name="cipher" value="vigenere" id="vigenere">
-                        <label for="vigenere" class="css-label" onclick="configureVigenere()">Vigenere</label>
-                    </td>
-                    <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Vigenere')" /></td>
-                    <td class="readMore"><span class="hide instructionsVigenere"><a href="http://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">Read more</a></span></td>
+        <div id="main">
+            <form id="type">
+                <input type="radio" name="type" value="encrypt" id="encrypt">
+                <label for="encrypt" class="css-label" onclick="Forward()">Encrypt</label>
+                <input type="radio" name="type" value="decrypt" id="decrypt">
+                <label for="decrypt" class="css-label" onclick="Backward()">Decrypt</label>
+            </form>
+            <br>
+            <form id="algorithm">
+                <table class="instructionsExpand">
+                    <tr>
+                        <td style="width:125px;">
+                            <input type="radio" name="cipher" value="caesar" id="caesar">
+                            <label for="caesar" class="css-label" onclick="configureCaesar()">Caesar</label>
+                        </td>
+                        <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Caesar')" /></td>
+                        <td style="max-width:800px;" class="readMore"><span class="hide instructionsCaesar"><a href="http://en.wikipedia.org/wiki/Caesar_cipher">Read more</a></span></td>
+                        <td class="row2" style="width:125px;">
+                            <input type="radio" name="cipher" value="autokey" id="autokey">
+                            <label for="autokey" class="css-label" onclick="configureAutokey()">Autokey</label>
+                        </td>
+                        <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Autokey')" /></td>
+                        <td class="readMore"><span class="hide instructionsAutokey"><a href="http://en.wikipedia.org/wiki/Autokey_cipher">Read more</a></span></td>
+                    </tr>
                     <tr>
                         <td>
-                            <input type="radio" name="cipher" value="piglatin" id="piglatin">
-                            <label for="piglatin" class="css-label" onclick="noKey()">Pig Latin</label>
+                            <input type="radio" name="cipher" value="vigenere" id="vigenere">
+                            <label for="vigenere" class="css-label" onclick="configureVigenere()">Vigenere</label>
                         </td>
-                        <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('PigLatin')" /></td>
-                        <td class="readMore"><span class="hide instructionsPigLatin"><a href="http://en.wikipedia.org/wiki/Pig_Latin">Read more</a></span></td>
-                    </tr>
-                    <!--<tr>
+                        <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Vigenere')" /></td>
+                        <td class="readMore"><span class="hide instructionsVigenere"><a href="http://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">Read more</a></span></td>
+                        <tr>
+                            <td>
+                                <input type="radio" name="cipher" value="piglatin" id="piglatin">
+                                <label for="piglatin" class="css-label" onclick="noKey()">Pig Latin</label>
+                            </td>
+                            <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('PigLatin')" /></td>
+                            <td class="readMore"><span class="hide instructionsPigLatin"><a href="http://en.wikipedia.org/wiki/Pig_Latin">Read more</a></span></td>
+                        </tr>
+                        <!--<tr>
                     <td>
                         <input type="radio" name="cipher" value="railfence" id="railfence">
                         <label for="railfence" class="css-label" onclick="configureRailFence()">Rail Fence</label>
@@ -60,36 +61,44 @@
                     <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('RailFence')" /></td>
                     <td class="readMore"><span class="hide instructionsRailFence"><a href="http://en.wikipedia.org/wiki/Rail_Fence_Cipher">Read more</a></span></td>
                 </tr>-->
-            </table>
-        </form>
+                </table>
+            </form>
 
-        <form id="frm1">
-            <table style="width:200px;">
-                <tr>
-                    <td>Key:</td>
-                    <td>
-                        <input type="text" name="fname" placeholder="key" id="key" name="key" style="width:200px !important;">
-                    </td>
-                </tr>
-                <tr>
-                    <td>String: <span id="expandInput" class="expandInput">(+)</span></td>
-                    <td>
-                        <textarea id="txt" placeholder="plaintext"></textarea>
-                        <!--<input type="text" name="lname" value="Duck-duck-goose!" id="txt" name="txt">-->
-                    </td>
-                </tr>
-            </table>
-        </form>
+            <form id="frm1">
+                <table style="width:200px;">
+                    <tr>
+                        <td>Key:</td>
+                        <td>
+                            <input type="text" name="fname" placeholder="key" id="key" name="key" style="width:200px !important;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>String: <span id="expandInput" class="expandInput">(+)</span></td>
+                        <td>
+                            <textarea id="txt" placeholder="plaintext"></textarea>
+                            <!--<input type="text" name="lname" value="Duck-duck-goose!" id="txt" name="txt">-->
+                        </td>
+                    </tr>
+                </table>
+            </form>
 
-        <button id="submit">Encrypt</button>
-        <button id="switch">Switch</button>
+            <button id="submit">Encrypt</button>
+            <button id="switch">Switch</button>
 
-        <center>
-            <textarea rows="4" columns="50" id="cipher" placeholder="output"></textarea>
-            <table id="cipherBreak" class="doNotDisplay"></table>
-        </center>
+            <center>
+                <textarea rows="4" columns="50" id="cipher" placeholder="output"></textarea>
+                <table id="cipherBreak" class="doNotDisplay"></table>
+            </center>
+        </div>
+        <p id="paragraph" class="doNotDisplay">Virtually everyone knows what encryption is - it's a way to obscure information. It's used all over the place, almost exclusively for security purposes. This app represents the branch of cryptography known as ciphers. This branch is integral to all encryption, and really everything else involving cryptography is based upon it.
+            <br>
+            <br> A cipher is a specific way to turn a specific message into a set of random letters, and a method to reverse that process in order to decrypt the message. Without knowing the cipher which was used to encrypt a message, it's nearly impossible to decrypt a secure message. However, even if you do know the cipher, it may still be very difficult to break the code. Most ciphers use something known as a key, which is used to encrypt the letters. The key can be anything from a number to an entire sentence itself. The more possibilities that exist for different keys, the more secure a cipher is considered due to it being much harder to guess the correct key.
+            <br>
+            <br> By using this app, you're able to encrypt messages using five different classical ciphers, known as the Caesar Cipher, the Vigenere Cipher, the Rail Fence Cipher, the Autokey Cipher, and the Atbash Cipher. Plus, you also get to play with Pig Latin just for the fun of it. If you'd like to learn more about any of the ciphers, each one has a link to a Wikipedia page which covers the algorithm extensively. All default values may be used to create a simple encryption, or more advanced and secure values may be chosen.
+            <br>
+            <br> This application is intended only for entertainment purposes. Although the plaintext is really encrypted, it only uses classical encrpytion methods, which can be relatively easily decrypted by a computer.</p>
 
-        <div class="footer"><a href="info.html" class="instructions">Instructions</a> <a href="frequency.html" class="instructions">Letter Frequency</a></div>
+        <div class="footer"><a href="#" id="back" class="doNotDisplay">&#8592; Back</a><a href="#" class="instructions" id="info">Instructions</a> <a href="frequency.html" class="instructions">Letter Frequency</a></div>
     </div>
     <script type="text/javascript" src="encryption.js"></script>
     <script type="text/javascript" src="script.js"></script>
