@@ -8,3 +8,4 @@ TODO
 1. Fix Autokey Cipher
 2. Ensure that when the input forms automatically switch that they don't conflict with each other
 3. Continue to develop frequency analysis tools
+4. Merge info.html and info-freq.html with their respective pages
