@@ -1,0 +1,213 @@
+/* global styles */
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Orbitron-Light"), local("Orbitron-Regular"), url(HmnHiRzvcnQr8CjBje6GQvesZW2xOQ-xsNqO47m55DA.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+a {
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+  color: grey; }
+
+a:hover {
+  text-decoration: underline; }
+
+.header {
+  font-family: Orbitron;
+  color: #00b3b3;
+  font-size: 200%; }
+
+/*Container*/
+body {
+  background-color: #00CDCD;
+  background-image: url("Metal%20armour%20plating%20cyan.jpg");
+  padding: 40px;
+  font-family: Trebuchet MS;
+  line-height: 1.6; }
+
+div.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 25px;
+  padding-bottom: 50px;
+  -webkit-box-shadow: 0 0 15px #fff;
+  -moz-box-shadow: 0 0 15px #fff;
+  box-shadow: 0 0 15px #fff;
+  border-radius: 10px; }
+
+/*CSS Input*/
+input[type=radio] {
+  display: none; }
+
+input[type=radio] + label.css-label {
+  padding-left: 25px;
+  height: 20px;
+  display: inline-block;
+  line-height: 20px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 20px;
+  vertical-align: middle;
+  cursor: pointer; }
+
+input[type=radio]:checked + label.css-label {
+  background-position: 0 -20px; }
+
+label.css-label {
+  background-image: url(csscheckbox.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-position 0.08s ease-in-out;
+  -moz-transition: background-position 0.08s ease-in-out;
+  -ms-transition: background-position 0.08s ease-in-out;
+  -o-transition: background-position 0.08s ease-in-out;
+  transition: background-position 0.08s ease-in-out; }
+
+input[type=text],
+input[type=url],
+input[type=tel],
+input[type=number],
+input[type=color],
+input[type=email],
+textarea {
+  border: 5px solid white;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 0 0 16px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 0 0 16px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 0 0 16px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 0 10px 0; }
+
+input[type=text]:focus,
+input[type=url]:focus,
+input[type=tel]:focus,
+input[type=number]:focus,
+input[type=color]:focus,
+input[type=email]:focus,
+textarea:focus {
+  border: 5px solid #e1e1e1; }
+
+input {
+  font-family: verdana; }
+
+form#type {
+  float: right;
+  display: flex; }
+
+form#type > label {
+  margin-right: 8px; }
+
+input#key,
+input#txt {
+  width: 125%; }
+
+textarea {
+  width: 75%; }
+
+div.footer {
+  margin-right: -10px;
+  float: right; }
+
+div.footer > a {
+  padding: 5px;
+  font-size: 80%;
+  position: relative;
+  bottom: -25px; }
+
+button {
+  border: 5px solid #f5f5f5;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+  padding: 5px;
+  background: #f5f5f5;
+  margin: 0px 0px 10px;
+  border-radius: 5px;
+  font-family: Verdana;
+  color: #686868;
+  font-weight: bold; }
+
+button:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 16px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 16px; }
+
+.doNotDisplay {
+  display: none; }
+
+/* index.html */
+#cipherBreak th,
+#cipherBreak td {
+  padding-bottom: 35px;
+  min-width: 75px; }
+
+#expandInput {
+  text-align: center;
+  font-size: 70%; }
+
+#expandInput:hover {
+  cursor: pointer; }
+
+textarea#txt {
+  height: 65%;
+  width: 83%; }
+
+td.row2 {
+  position: relative;
+  left: 20px; }
+
+.readMore {
+  width: 100px;
+  position: relative;
+  left: 20px;
+  top: 2px; }
+
+.instructionsExpand > .hide {
+  position: relative;
+  left: 10px; }
+
+#arrowExpand {
+  position: relative;
+  top: 7px;
+  left: 8px;
+  transition: all 1s ease; }
+
+.rotated {
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  /* IE 9 */
+  -moz-transform: rotate(180deg);
+  /* Firefox */
+  -webkit-transform: rotate(180deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(180deg);
+  /* Opera */ }
+
+.instructions {
+  font-size: 95%; }
+
+table {
+  margin-top: 15px; }
+
+.hide {
+  display: none; }
+
+/* frequency.html */
+button#default {
+  position: relative;
+  margin-left: 10px;
+  top: -85px; }
+
+textarea#input {
+  margin-top: 10px; }
+
+/*# sourceMappingURL=main.css.map */
