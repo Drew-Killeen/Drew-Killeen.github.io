@@ -39,7 +39,7 @@ function configureAutokey() {
 function Backward() {
     document.getElementById("submit").innerHTML = "Decrypt";
     if (document.getElementById("piglatin").checked === true) {
-        document.getElementById("key").defaultValue = "disabled";
+        document.getElementById("key").placeholder = "disabled";
     } else if (document.getElementById("caesar").checked === true) {
         document.getElementById("key").placeholder = "13";
     } else if (document.getElementById("vigenere").checked === true) {
@@ -60,7 +60,7 @@ function Forward() {
     } else if (document.getElementById("vigenere").checked === true) {
         document.getElementById("key").placeholder = "baz";
     } else if (document.getElementById("piglatin").checked === true) {
-        document.getElementById("key").defaultValue = "disabled";
+        document.getElementById("key").placeholder = "disabled";
     } else if (document.getElementById("railfence").checked === true) {
         document.getElementById("key").placeholder = "3";
     } else if (document.getElementById("autokey").checked === true) {
@@ -73,7 +73,7 @@ function Forward() {
 
 function noKey() {
     document.getElementById("key").disabled = true;
-    document.getElementById("key").defaultValue = "disabled";
+    document.getElementById("key").placeholder = "disabled";
 }
 
 function Switch() {
