@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-31j">
-    <link href='style.css' rel='stylesheet' type='text/css'>
+    <link href='main.css' rel='stylesheet' type='text/css'>
     <script src="jquery.js"></script>
     <link rel="stylesheet" href="jquery-ui.css" />
     <script src="jquery-ui.js"></script>
@@ -17,21 +17,21 @@
         <div id="main">
             <form id="type">
                 <input type="radio" name="type" value="encrypt" id="encrypt">
-                <label for="encrypt" class="css-label" onclick="Forward()">Encrypt</label>
+                <label for="encrypt" class="css-label" id="forward">Encrypt</label>
                 <input type="radio" name="type" value="decrypt" id="decrypt">
-                <label for="decrypt" class="css-label" onclick="Backward()">Decrypt</label>
+                <label for="decrypt" class="css-label" id="backward">Decrypt</label>
             </form>
             <br>
             <form id="algorithm">
                 <table class="instructionsExpand">
                     <tr>
-                        <td style="width:125px;">
+                        <td style="width:120px;">
                             <input type="radio" name="cipher" value="caesar" id="caesar">
                             <label for="caesar" class="css-label" onclick="configureCaesar()">Caesar</label>
                         </td>
                         <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Caesar')" /></td>
                         <td style="max-width:800px;" class="readMore"><span class="hide instructionsCaesar"><a href="http://en.wikipedia.org/wiki/Caesar_cipher">Read more</a></span></td>
-                        <td class="row2" style="width:125px;">
+                        <td class="row2" style="width:135px;">
                             <input type="radio" name="cipher" value="autokey" id="autokey">
                             <label for="autokey" class="css-label" onclick="configureAutokey()">Autokey</label>
                         </td>
@@ -45,6 +45,12 @@
                         </td>
                         <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Vigenere')" /></td>
                         <td class="readMore"><span class="hide instructionsVigenere"><a href="http://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">Read more</a></span></td>
+                        <td class="row2">
+                            <input type="radio" name="cipher" value="railfence" id="railfence">
+                            <label for="railfence" class="css-label" onclick="configureRailFence()">Rail Fence</label>
+                        </td>
+                        <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('RailFence')" /></td>
+                        <td class="readMore"><span class="hide instructionsRailFence"><a href="http://en.wikipedia.org/wiki/Rail_Fence_Cipher">Read more</a></span></td>
                         <tr>
                             <td>
                                 <input type="radio" name="cipher" value="piglatin" id="piglatin">
@@ -53,14 +59,6 @@
                             <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('PigLatin')" /></td>
                             <td class="readMore"><span class="hide instructionsPigLatin"><a href="http://en.wikipedia.org/wiki/Pig_Latin">Read more</a></span></td>
                         </tr>
-                        <!--<tr>
-                    <td>
-                        <input type="radio" name="cipher" value="railfence" id="railfence">
-                        <label for="railfence" class="css-label" onclick="configureRailFence()">Rail Fence</label>
-                    </td>
-                    <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('RailFence')" /></td>
-                    <td class="readMore"><span class="hide instructionsRailFence"><a href="http://en.wikipedia.org/wiki/Rail_Fence_Cipher">Read more</a></span></td>
-                </tr>-->
                 </table>
             </form>
 

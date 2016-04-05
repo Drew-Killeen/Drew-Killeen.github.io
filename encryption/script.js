@@ -2,6 +2,9 @@
  ** General scripts; excludes ciphers
  */
 
+document.getElementById("backward").addEventListener("click", Backward);
+document.getElementById("forward").addEventListener("click", Forward);
+
 var disableKey = false;
 
 document.getElementById("submit").addEventListener("click", Encrypt);
