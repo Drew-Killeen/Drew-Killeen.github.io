@@ -5,9 +5,13 @@ var cracked = false;
 
 function Encrypt() {
     var key = document.getElementById("key").value,
-        txt = document.getElementById("txt").value.toLowerCase().replace(/['"]+/g, ''),
-        output;
-    if (key.length !== 0 || document.getElementById("piglatin").checked === true || document.getElementById("atbash") === true || document.getElementById("decrypt").checked === false) {
+        txt, output;
+    if (/^TEST$/.test(document.getElementById("txt").value) === true) {
+        txt = lotsOfText;
+    } else {
+        txt = document.getElementById("txt").value.toLowerCase().replace(/['"]+/g, '');
+    }
+    if (key.length !== 0 || document.getElementById("piglatin").checked === true || document.getElementById("decrypt").checked === false) {
         document.getElementById("cipher").classList.remove("doNotDisplay");
         document.getElementById("cipherBreak").classList.add("doNotDisplay");
         if (document.getElementById("decrypt").checked === true) {
@@ -17,18 +21,19 @@ function Encrypt() {
             } else if (document.getElementById("vigenere").checked === true) {
                 console.log("Decypt Vigenere");
                 output = vigenereCipherDecrypt(txt, key);
-            } else if (document.getElementById("railfence").checked === true) {
-                console.log("Decrypt Rail Fence");
-                output = railFenceDecrypt(txt, key);
-            } else if (document.getElementById("piglatin").checked === true) {
+            }
+            /*else if (document.getElementById("railfence").checked === true) {
+                           console.log("Decrypt Rail Fence");
+                           output = railFenceDecrypt(txt, key);
+                       }*/
+            else if (document.getElementById("piglatin").checked === true) {
                 console.log("Decrypt Pig Latin");
                 output = pigLatinDecrypt(txt);
             } else if (document.getElementById("autokey").checked === true) {
                 console.log("Decrypt Autokey");
                 output = autokeyDecrypt(txt, key);
-            } else if (document.getElementById("atbash").checked === true) {
-                console.log("Decrypt Atbash");
-                output = atbashDecrypt(txt, key);
+            } else {
+                alert("Please select a cipher");
             }
         } else {
             if (document.getElementById("caesar").checked === true) {
@@ -50,15 +55,17 @@ function Encrypt() {
             } else if (document.getElementById("piglatin").checked === true) {
                 console.log("Initiating Pig Latin Translation");
                 output = pigLatinEncryption(txt);
-            } else if (document.getElementById("railfence").checked === true) {
-                if (key.length === 0) {
-                    key = 3;
-                    document.getElementById("cipherBreak").classList.remove("doNotDisplay");
-                    document.getElementById("cipherBreak").innerHTML = "Key set to default of 3";
-                }
-                console.log("Initiating Rail Fence Cipher");
-                output = railFenceCipher(txt, key);
-            } else if (document.getElementById("autokey").checked === true) {
+            }
+            /*else if (document.getElementById("railfence").checked === true) {
+                           if (key.length === 0) {
+                               key = 3;
+                               document.getElementById("cipherBreak").classList.remove("doNotDisplay");
+                               document.getElementById("cipherBreak").innerHTML = "Key set to default of 3";
+                           }
+                           console.log("Initiating Rail Fence Cipher");
+                           output = railFenceCipher(txt, key);
+                       }*/
+            else if (document.getElementById("autokey").checked === true) {
                 if (key.length === 0) {
                     key = "qux";
                     document.getElementById("cipherBreak").classList.remove("doNotDisplay");
@@ -66,9 +73,8 @@ function Encrypt() {
                 }
                 console.log("Initiating Autokey Cipher");
                 output = autokeyCipher(txt, key);
-            } else if (document.getElementById("atbash").checked === true) {
-                console.log("Initiating Atbash Cipher");
-                output = atbashCipher(txt);
+            } else {
+                alert("Please select a cipher");
             }
         }
         document.getElementById("cipher").value = output;
@@ -383,56 +389,4 @@ function autokeyCipher(plaintext, key) {
     }
     return output;
     //return "error";
-}
-
-/* 
- **
- ** Atbash Cipher 
- **
- */
-
-/* Encrypt */
-function atbashCipher(plaintext) {
-    var print;
-    plaintext = plaintext.split("");
-    for (var i = 0; i < plaintext.length; i++) {
-        if (/^[a-m]+$/.test(plaintext[i])) {
-            print = 219 - plaintext[i].charCodeAt(0);
-            plaintext[i] = String.fromCharCode(print);
-        } else if (/^[n-z]+$/.test(plaintext[i])) {
-            print = 97 + (122 - plaintext[i].charCodeAt(0));
-            plaintext[i] = String.fromCharCode(print);
-        } else if (/^[A-M]+$/.test(plaintext[i])) {
-            print = 155 - plaintext[i].charCodeAt(0);
-            plaintext[i] = String.fromCharCode(print);
-        } else if (/^[N-Z]+$/.test(plaintext[i])) {
-            print = 65 + (90 - plaintext[i].charCodeAt(0));
-            plaintext[i] = String.fromCharCode(print);
-        }
-    }
-    plaintext = plaintext.join("");
-    return plaintext;
-}
-
-/* Decrypt */
-function atbashDecrypt(plaintext) {
-    var print;
-    plaintext = plaintext.split("");
-    for (var i = 0; i < plaintext.length; i++) {
-        if (/^[a-m]+$/.test(plaintext[i])) {
-            print = 219 - plaintext[i].charCodeAt(0);
-            plaintext[i] = String.fromCharCode(print);
-        } else if (/^[n-z]+$/.test(plaintext[i])) {
-            print = 97 + (122 - plaintext[i].charCodeAt(0));
-            plaintext[i] = String.fromCharCode(print);
-        } else if (/^[A-M]+$/.test(plaintext[i])) {
-            print = 155 - plaintext[i].charCodeAt(0);
-            plaintext[i] = String.fromCharCode(print);
-        } else if (/^[N-Z]+$/.test(plaintext[i])) {
-            print = 65 + (90 - plaintext[i].charCodeAt(0));
-            plaintext[i] = String.fromCharCode(print);
-        }
-    }
-    plaintext = plaintext.join("");
-    return plaintext;
 }
