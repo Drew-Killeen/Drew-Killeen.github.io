@@ -45,29 +45,22 @@
                     </td>
                     <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Vigenere')" /></td>
                     <td class="readMore"><span class="hide instructionsVigenere"><a href="http://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">Read more</a></span></td>
-                    <td class="row2" style="width:125px;">
-                        <input type="radio" name="cipher" value="atbash" id="atbash">
-                        <label for="atbash" class="css-label" onclick="noKey()">Atbash</label>
-                    </td>
-                    <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('Atbash')" /></td>
-                    <td class="readMore"><span class="hide instructionsAtbash"><a href="http://en.wikipedia.org/wiki/Atbash">Read more</a></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="radio" name="cipher" value="piglatin" id="piglatin">
-                        <label for="piglatin" class="css-label" onclick="noKey()">Pig Latin</label>
-                    </td>
-                    <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('PigLatin')" /></td>
-                    <td class="readMore"><span class="hide instructionsPigLatin"><a href="http://en.wikipedia.org/wiki/Pig_Latin">Read more</a></span></td>
-                </tr>
-                <tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="cipher" value="piglatin" id="piglatin">
+                            <label for="piglatin" class="css-label" onclick="noKey()">Pig Latin</label>
+                        </td>
+                        <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('PigLatin')" /></td>
+                        <td class="readMore"><span class="hide instructionsPigLatin"><a href="http://en.wikipedia.org/wiki/Pig_Latin">Read more</a></span></td>
+                    </tr>
+                    <!--<tr>
                     <td>
                         <input type="radio" name="cipher" value="railfence" id="railfence">
                         <label for="railfence" class="css-label" onclick="configureRailFence()">Rail Fence</label>
                     </td>
                     <td><img id="arrowExpand" height="24px" width="24px" src="arrow_cyan.png" onclick="$(this).toggleClass('rotated'); explain('RailFence')" /></td>
                     <td class="readMore"><span class="hide instructionsRailFence"><a href="http://en.wikipedia.org/wiki/Rail_Fence_Cipher">Read more</a></span></td>
-                </tr>
+                </tr>-->
             </table>
         </form>
 
@@ -82,7 +75,8 @@
                 <tr>
                     <td>String: <span id="expandInput" class="expandInput">(+)</span></td>
                     <td>
-                        <textarea id="txt" placeholder="plaintext"></textarea><!--<input type="text" name="lname" value="Duck-duck-goose!" id="txt" name="txt">-->
+                        <textarea id="txt" placeholder="plaintext"></textarea>
+                        <!--<input type="text" name="lname" value="Duck-duck-goose!" id="txt" name="txt">-->
                     </td>
                 </tr>
             </table>
@@ -96,10 +90,11 @@
             <table id="cipherBreak" class="doNotDisplay"></table>
         </center>
 
-        <div class="footer"><a href="info.html" class="instructions">Instructions</a></div>
+        <div class="footer"><a href="info.html" class="instructions">Instructions</a> <a href="frequency.html" class="instructions">Letter Frequency</a></div>
     </div>
     <script type="text/javascript" src="encryption.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="global.js"></script>
 </body>
 
 </html>
