@@ -16,11 +16,13 @@
     <div class="container">
         <a href="index.html" class="header">The Drewnigma Machine</a>
 
-        <canvas id="myChart" width="400" height="200"></canvas>
-        
-        <textarea rows="4" columns="50" id="input" placeholder="type here"></textarea>
+        <div id="main">
+            <canvas id="myChart" width="400" height="200"></canvas>
 
-        <div class="footer"><a href="index.html" class="instructions">&#8592; Back</a> <a href="info-freq.html" class="instructions">Instructions</a></div>
+            <textarea rows="4" columns="50" id="input" placeholder="type here"></textarea><button id="default">Default</button>
+        </div>
+        <p id="paragraph" class="doNotDisplay">This tool is designed to aid in cryptanalysis by displaying the letter frequency of a specific text. Type in the box and the page will automatically display a graph of the frequency of each letter you type. Hold down the default button to see the frequency of each letter in the English language.</p>
+        <div class="footer"><a href="#" id="back" class="doNotDisplay">&#8592; Back</a><a href="#" class="instructions" id="info">Instructions</a></div>
     </div>
     <script type="text/javascript" src="global.js"></script>
     <script type="text/javascript" src="frequency.js"></script>
