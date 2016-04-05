@@ -107,7 +107,7 @@ input[type=radio]:checked + label.css-label {
 }
 
 label.css-label {
-    background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_6e89b642c2712796cd784a163623d107.png);
+    background-image: url(csscheckbox.png);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
