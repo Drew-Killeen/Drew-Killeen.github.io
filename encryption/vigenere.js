@@ -1,6 +1,27 @@
-document.getElementById("submit").addEventListener("click", breakVigenereCipher);
+document.getElementById("submit").addEventListener("click", vigenereCipherKey);
 
-function breakVigenereCipher() {
+var allKeys = new Array;
+
+function keyRange() {
+    if (document.getElementById("keyRange").value !== "") {
+        var input = document.getElementById("keyRange").value.split("-"),
+            rangeStart = Number(input[0]),
+            rangeEnd = Number(input[1]);
+        for (var i = 0; i <= rangeEnd - rangeStart; i++) {
+            allKeys[i] = i + rangeStart;
+        }
+        console.log(allKeys);
+    }
+    else {
+        for (var i = 0; i <= 25; i++) {
+            allKeys[i] = i;
+        }
+    }
+}
+
+
+function vigenereCipherKey() {
+    keyRange();
     var input, key,
         keyList = new Array;
     if (/^TEST$/.test(document.getElementById("input").value) === true) {
@@ -18,6 +39,7 @@ function breakVigenereCipher() {
     var factors = new Array,
         numbers = new Array,
         wordLength = {
+            two: 0,
             three: 0,
             four: 0,
             five: 0,
@@ -43,38 +65,49 @@ function breakVigenereCipher() {
         }
     }
     for (var i = 0; i <= numbers.length; i++) {
-        if (numbers[i] % 3 == 0) {
+        if (allKeys.indexOf(2) !== -1 && numbers[i] % 2 == 0) {
+            factors[2][wordLength.two] = 2;
+            wordLength.two++;
+        }
+        if (allKeys.indexOf(3) !== -1 && numbers[i] % 3 == 0) {
             factors[3][wordLength.three] = 3;
             wordLength.three++;
         }
-        if (numbers[i] % 4 == 0) {
+        if (allKeys.indexOf(4) !== -1 && numbers[i] % 4 == 0) {
             factors[4][wordLength.four] = 4;
             wordLength.four++;
         }
-        if (numbers[i] % 5 == 0) {
+        if (allKeys.indexOf(5) !== -1 && numbers[i] % 5 == 0) {
             factors[5][wordLength.five] = 5;
             wordLength.five++;
         }
-        if (numbers[i] % 6 == 0) {
+        if (allKeys.indexOf(6) !== -1 && numbers[i] % 6 == 0) {
             factors[6][wordLength.six] = 6;
             wordLength.six++;
         }
-        if (numbers[i] % 7 == 0) {
+        if (allKeys.indexOf(7) !== -1 && numbers[i] % 7 == 0) {
             factors[7][wordLength.seven] = 7;
             wordLength.seven++;
         }
-        if (numbers[i] % 8 == 0) {
+        if (allKeys.indexOf(8) !== -1 && numbers[i] % 8 == 0) {
             factors[8][wordLength.eight] = 8;
             wordLength.eight++;
         }
     }
 
-    console.log(factors.sort(function (a, b) {
+    factors = factors.sort(function (a, b) {
         return b.length - a.length
-    }));
+    });
+
+    console.log("The liklihood of the key length is as follows:");
+    for (var i = 0; i <= factors.length - 3; i++) {
+        console.log(factors[i][0]);
+    }
+}
+
+function vigenereCipherBreak() {
     key = 3;
     for (var i = 0, letterFrequency = new Array; i < input.length / key; i++) {
-        letterFrequency[i] = input.substr(i*key, 1);
+        letterFrequency[i] = input.substr(i * key, 1);
     }
-    console.log(letterFrequency);
 }
