@@ -8,4 +8,4 @@ TODO
 1. Fix Autokey Cipher
 2. Continue to develop frequency analysis tools
 3. Send the content of the output textarea from index.html to the input textarea of frequency.html
-4. Develop tool the break the Vigenere cipher
+4. Develop tool to break the Vigenere cipher
