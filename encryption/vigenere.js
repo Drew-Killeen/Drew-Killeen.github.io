@@ -73,7 +73,8 @@ function breakVigenereCipher() {
         return b.length - a.length
     }));
     key = 3;
-    for (var i = 0; i <= input.length / key; i++) {
-        
+    for (var i = 0, letterFrequency = new Array; i < input.length / key; i++) {
+        letterFrequency[i] = input.substr(i*key, 1);
     }
+    console.log(letterFrequency);
 }
