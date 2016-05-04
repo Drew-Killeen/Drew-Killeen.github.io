@@ -30,6 +30,9 @@ function words() {
 
 function updateClock() {
     testlength = Number(document.getElementById("testLength").value);
+    if(testlength < 1) {
+        testlength = 60;
+    }
     if (start === false) {
         document.getElementById("type").removeEventListener("keypress", updateClock);
     }
