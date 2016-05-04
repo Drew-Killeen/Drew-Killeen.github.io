@@ -2,3 +2,7 @@ p#type_me {
     text-align:justify;
     font-size:150%;
 }
+
+.highlight {
+    color:red;
+}
