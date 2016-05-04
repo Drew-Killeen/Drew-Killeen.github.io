@@ -1,6 +1,25 @@
+body {
+    font-family:verdana;
+}
+
 p#type_me {
-    text-align:justify;
+    text-align:center;
+    font-size:200%;
+    margin:0 auto;
+    width:75%;
+    height:150px;
+    border:5px solid blue;
+    border-radius:15px;
+    line-height:155%;
+    padding:8px;
+}
+
+#type {
+    margin:0 auto;
+    width:75%;
+    height:35px;
     font-size:150%;
+    margin-top:15px;
 }
 
 .highlight {

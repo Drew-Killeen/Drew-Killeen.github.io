@@ -17,8 +17,8 @@ function words() {
     var words = ["time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact"],
         output = "",
         i;
-    for (i = 0; i <= 200; i++) {
-        if (i % 10 === 0) {
+    for (i = 0; i <= testlength * 3; i++) {
+        if (i % 10 === 0 && i !== 0) {
             output += "<br>"
         }
         wordlist[i] = words[Math.floor((Math.random() * 25))];
@@ -32,6 +32,9 @@ function updateClock() {
     testlength = Number(document.getElementById("testLength").value);
     if(testlength < 1) {
         testlength = 60;
+    }
+    else if(testlength > 60 && start === false) {
+        words();
     }
     if (start === false) {
         document.getElementById("type").removeEventListener("keypress", updateClock);
