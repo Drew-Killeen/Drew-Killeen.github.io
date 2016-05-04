@@ -1,11 +1,7 @@
 /*
  ** General scripts; excludes ciphers
  */
-document.addEventListener("keypress", function (e) {
-    if (13 == e.keyCode) {
-        Encrypt();
-    }
-});
+
 document.getElementById("backward").addEventListener("click", Backward);
 document.getElementById("forward").addEventListener("click", Forward);
 
