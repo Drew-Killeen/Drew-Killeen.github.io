@@ -76,5 +76,5 @@ function endTest() {
             wrongwords++;
         }
     }
-    alert("Test completed... " + correctwords * (60 / testlength) + " WPM");
+    document.getElementById("clock").innerHTML = "Test completed... " + correctwords * (60 / testlength) + " WPM";
 }
