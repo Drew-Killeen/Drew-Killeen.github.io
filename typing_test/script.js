@@ -26,14 +26,19 @@ function words() {
     }
     document.getElementById("type_me").innerHTML = output;
     document.getElementById("word0").classList.add("highlight");
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    for (var i = 0; i < (wordlist.length * 3) / 10; i++) {
+        style.innerHTML += '.row' + i + ' {position:relative;top:-' + i * 49 + 'px;} ';
+        document.getElementsByTagName('head')[0].appendChild(style);
+    }
 }
 
 function updateClock() {
     testlength = Number(document.getElementById("testLength").value);
-    if(testlength < 1) {
+    if (testlength < 1) {
         testlength = 60;
-    }
-    else if(testlength > 60 && start === false) {
+    } else if (testlength > 60 && start === false) {
         words();
     }
     if (start === false) {
@@ -56,6 +61,10 @@ function checkWord() {
     document.getElementById("word" + l).classList.remove("highlight");
     l++;
     document.getElementById("word" + l).classList.add("highlight");
+    if (l % 10 === 0 && l !== 0) {
+        document.getElementById("type_me").classList.remove("row" + (l / 10 - 1));
+        document.getElementById("type_me").classList.add("row" + l / 10);
+    }
 }
 
 function endTest() {
