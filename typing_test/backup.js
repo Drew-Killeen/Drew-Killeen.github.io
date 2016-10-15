@@ -18,10 +18,10 @@ function words() {
     var words = ["time", "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part", "child", "eye", "woman", "place", "work", "week", "case", "point", "government", "company", "number", "group", "problem", "fact"];
     var rowLength = 0;
     var textLength = 0;
-    var rowNum = 1;
+    var rowNum = 0;
     output = "<span id='row0'>";
     for (var i = 0; i <= testlength * 3; i++) {
-        if (rowLength > 45) {
+        if (rowLength > 48) {
             output += "</span><br><span class='doNotDisplay' id='row" + rowNum + "'>"
             textLength += rowLength;
             rowLength = 0;

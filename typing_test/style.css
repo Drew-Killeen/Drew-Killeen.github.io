@@ -4,9 +4,9 @@ body {
 
 div#box {
     text-align: center;
-    font-size: 200%;
+    font-size: 175%;
     margin: 0 auto;
-    width: 75%;
+    width: 80%;
     height: 145px;
     border: 5px solid blue;
     border-radius: 15px;
